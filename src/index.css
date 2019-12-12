@@ -1,4 +1,19 @@
-body {
+header {
+  min-width: 100vw;
+  display: flex;
+  user-select: none;
+  color: white;
+  justify-content: center;
+  background-color: blueviolet;
+  box-shadow: 2px 2px 5px 2px #aaaaaa;
+}
+
+header h1{
+  margin: 10px;
+}
+
+html, body {
+  width: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

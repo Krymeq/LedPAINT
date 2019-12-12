@@ -1,0 +1,26 @@
+@media screen and (min-width: 1200px)
+{
+  .colorplane-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .canvas {
+    box-shadow: 2px 2px 5px 2px #aaaaaa;
+  }
+  
+  .cell {
+    min-width: 30px;
+    min-height: 30px;
+    border: 1px solid white;
+  }
+  
+  .matrix-row-container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .colorplane-container-inner {
+    margin: 10px;
+  }
+}

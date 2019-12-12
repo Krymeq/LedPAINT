@@ -1,0 +1,28 @@
+@media screen and (max-width: 1200px) {
+    .colorplane-container {
+        display: block;
+        justify-content: center;
+    }
+
+    .cell {
+        min-width: calc(3vw - 1px);
+        min-height: calc(3vw - 1px);
+        border: 0.5px solid white;
+    }
+
+    .matrix-row-container {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .colorplane-container-inner {
+        margin: 3px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .canvas {
+        box-shadow: 2px 2px 5px 2px #aaaaaa;
+    }
+}
