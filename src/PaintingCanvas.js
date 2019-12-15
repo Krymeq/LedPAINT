@@ -4,15 +4,12 @@ import MatrixRow from './MatrixRow';
 function updateArray(arr, newValue, x, y)
 {
     let res = arr;
-    console.log(res[x][y], newValue);
     res[x][y] = newValue;
-    console.log(res[x][y]);
     return res;    
 }
 
 class PaintingCanvas extends React.Component {  
     constructor(props){
-        
         let arr = []
         for(let i = 0; i < 16; i++){
             
@@ -24,22 +21,24 @@ class PaintingCanvas extends React.Component {
 
         super(props);
         this.state = {
-            colors: arr
+            colors: arr,
+            draw : false
         }
 
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(colnum, rownum)
+    handleClick(colnum, rownum, singleClick)
     {
-        console.log(colnum, rownum, this.props.color);
-        this.setState({
-            colors: updateArray
-                (this.state.colors, 
-                 this.props.color, 
-                 colnum, 
-                 rownum)
-        });
+        if(this.state.draw || singleClick){
+            this.setState({
+                colors: updateArray
+                    (this.state.colors, 
+                     this.props.color, 
+                     colnum, 
+                     rownum)
+            });
+        }
     }
 
     render()
@@ -53,7 +52,9 @@ class PaintingCanvas extends React.Component {
                         colors = {this.state.colors[i]}/>;
         }
         return(
-        <div className = 'canvas'>
+        <div className = 'canvas'
+            onMouseDown = {() => this.setState({draw : true})}
+            onMouseUp = {() => this.setState({draw : false})}>
             {rows}
         </div>)
     }

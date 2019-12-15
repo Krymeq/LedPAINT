@@ -8,6 +8,7 @@ class ColorPlane extends React.Component
         super(props);
         
         let initialColor = '#00ff00';
+
         this.state = {
             color: initialColor
         }
@@ -18,7 +19,6 @@ class ColorPlane extends React.Component
     handleChangeColorComplete(color) {
         this.setState({ color: color.hex });
     };
-    
 
     render(){
         return(
