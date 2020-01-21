@@ -27,6 +27,7 @@ class PaintingCanvas extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.sendData = this.sendData.bind(this);
+        this.fillCanvas = this.fillCanvas.bind(this);
     }
 
     handleClick(colnum, rownum, singleClick)
@@ -42,10 +43,23 @@ class PaintingCanvas extends React.Component {
         }
     }
 
+    fillCanvas(){
+        let arr = [];
+        for(let i = 0; i < 16; i++){         
+            arr[i] = [];
+            for(let j = 0; j < 32; j++){
+                arr[i][j] = this.props.color;      // #4a90ea
+            }
+        }
+        this.setState({
+            colors: arr
+        }, () => this.sendData());
+    }
+
     sendData(){
         let that = this;
         console.log("wywołanko");
-        fetch('http://192.168.1.85:5000', 
+        fetch('http://192.168.43.24:5000', 
         {
             method: 'PUT',
             headers: {
@@ -53,7 +67,7 @@ class PaintingCanvas extends React.Component {
             },
             body: JSON.stringify(that.state.colors)
         })
-        .catch(() => console.log("no zjebało się no"));
+        .catch(() => console.log("popsuło się"));
         this.setState({draw: false});
     }
 
@@ -70,12 +84,18 @@ class PaintingCanvas extends React.Component {
             />;
         }
         return(
-        <div className = 'canvas'
-            onMouseDown = {() => this.setState({draw : true})}
-            onMouseUp = {this.sendData}
-            onTouchStart = {() => this.setState({draw: true})}
-            onTouchEnd = {() => this.setState({draw: false})}>
-            {rows}
+        <div className = 'canvas-container'>
+            <div className = 'canvas'
+                onMouseDown = {() => this.setState({draw : true})}
+                onMouseUp = {this.sendData}
+                onTouchStart = {() => this.setState({draw: true})}
+                onTouchEnd = {() => this.setState({draw: false})}>
+                {rows}
+            </div>
+            <div className = 'button'
+                 onClick = {this.fillCanvas}>
+                <img src = "paintbucket.png" alt = 'Fill canvas'></img>
+            </div>
         </div>)
     }
 }

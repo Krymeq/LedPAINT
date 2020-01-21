@@ -4,6 +4,24 @@
         justify-content: center;
     }
 
+    .button {
+        color: white;
+        background-color: blueviolet;
+        display: inline-block;
+        font-size: 18px;
+        margin-top: 10px;
+        border-radius: 5px;
+        padding: 8px;
+        -moz-user-select: none;
+        user-select: none;
+        transition: all 0.15s ease-in;
+      }
+    
+      .button:hover {
+        cursor: pointer;
+        background-color: darkmagenta;
+      }
+
     .cell {
         min-width: calc(3vw - 1px);
         min-height: calc(3vw - 1px);

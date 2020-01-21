@@ -5,6 +5,28 @@
     justify-content: center;
   }
 
+  .canvas-container {
+    text-align: left;
+  }
+
+  .button {
+    color: white;
+    background-color: blueviolet;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 8px;
+    -moz-user-select: none;
+    user-select: none;
+    transition: all 0.15s ease-in;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    background-color: darkmagenta;
+  }
+
   .canvas {
     user-select: none;
     box-shadow: 2px 2px 5px 2px #aaaaaa;
