@@ -58,7 +58,6 @@ class PaintingCanvas extends React.Component {
 
     sendData(){
         let that = this;
-        console.log("wywołanko");
         fetch('http://192.168.43.24:5000', 
         {
             method: 'PUT',
